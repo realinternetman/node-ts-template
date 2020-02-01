@@ -8,8 +8,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "develop": "ts-node -r tsconfig-paths/register src/index.ts",
-    "watch": "ts-node-dev -r tsconfig-paths/register --respawn src/index.ts",
+    "develop": "ts-node src/index.ts",
+    "watch": "ts-node-dev --respawn src/index.ts",
     "lint": "yarn eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "yarn eslint --fix . --ext .js,.jsx,.ts,.tsx",
     "build": "rimraf dist && tsc"
@@ -27,7 +27,6 @@
     "rimraf": "^3.0.1",
     "ts-node": "^8.6.2",
     "ts-node-dev": "^1.0.0-pre.44",
-    "tsconfig-paths": "^3.9.0",
     "typescript": "^3.7.5"
   }
 }
