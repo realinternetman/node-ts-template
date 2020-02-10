@@ -1,4 +1,4 @@
-import config from './config'
+import config from '@/config'
 
 const hello = (text: string): string => {
   return `hello ${text}`
