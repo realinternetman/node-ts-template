@@ -1,5 +1,7 @@
 const path = require('path');
- 
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const nodeExternals = require('webpack-node-externals');
+
 module.exports = {
   mode: 'development',
   entry: path.resolve(__dirname, 'src/index.ts'),
@@ -8,12 +10,17 @@ module.exports = {
     filename: 'index.js',
   },
   resolve: {
+    modules: [
+      "node_modules",
+      path.resolve(__dirname, 'src')
+    ],
     extensions: ['.ts'],
     alias: {
       '@': path.resolve(__dirname, 'src/'),
     },
   },
   target: 'node',
+  externals: [nodeExternals()],
   module: {
     rules: [
       {
@@ -28,4 +35,7 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new UglifyJsPlugin(),
+  ],
 };
